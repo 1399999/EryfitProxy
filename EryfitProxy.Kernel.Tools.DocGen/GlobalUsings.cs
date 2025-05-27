@@ -1,0 +1,15 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Reflection;
+global using EryfitProxy.Kernel.Rules;
+global using EryfitProxy.Kernel.Rules.Filters;
+global using EryfitProxy.Kernel.Utils;
+global using Action = EryfitProxy.Kernel.Rules.Action;
+global using System.IO;
+global using EryfitProxy.Kernel.Rules.Actions;
+global using System.Text.Json;
+global using EryfitProxy.Kernel.Clients.Ssl;
+global using EryfitProxy.Kernel.Rules.Actions.HighLevelActions;
+global using EryfitProxy.Kernel.Rules.Filters.RequestFilters;
+global using EryfitProxy.Kernel.Rules.Filters.ResponseFilters;

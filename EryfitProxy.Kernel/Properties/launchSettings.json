@@ -1,0 +1,28 @@
+{
+    "profiles": {
+        "launch (system proxy)": {
+            "commandName": "Project",
+            "environmentVariables": {
+            },
+            "commandLineArgs": "start --llo -sp"
+        },
+        "launch (remote)": {
+            "commandName": "Project",
+            "environmentVariables": {
+            },
+            "commandLineArgs": "start -l 0.0.0.0:8877 -ss -t"
+        },
+        "launch (normal)": {
+            "commandName": "Project",
+            "environmentVariables": {
+            },
+            "commandLineArgs": "start -k"
+        },
+        "launch (debug rule)": {
+            "commandName": "Project",
+            "environmentVariables": {
+            },
+            "commandLineArgs": "start -b -r testrule.yml -sp  -l 0.0.0.0:8877"
+        }
+    }
+}

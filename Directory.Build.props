@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
+    <Authors>Mikhail Zhebrunov</Authors>
+    <Copyright>Copyright 2020-2025 Mikhail Zhebrunov</Copyright>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Condition="!Exists('packages.config')">
+      <PrivateAssets>all</PrivateAssets>
+      <Version>3.6.143</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

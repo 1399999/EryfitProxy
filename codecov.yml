@@ -1,0 +1,42 @@
+comment:
+  layout: "header, diff, flags, components"
+
+coverage:
+  range: 60..73
+  status:
+    project:
+      default:
+        target: 65% 
+    patch: no
+
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: 65%
+        branches:
+          - "main"
+  individual_components:
+    - component_id: EryfitProxy.Kernel.Core
+      name: EryfitProxy.Kernel.Core
+      paths:
+        - src/EryfitProxy.Kernel.Core/**
+    - component_id: Eryfit.Kernel.Core.Pcap
+      name: Eryfit.Kernel.Core.Pcap
+      paths:
+        - src/Eryfit.Kernel.Core.Pcap/**
+    - component_id: EryfitProxy.Kernel
+      name: EryfitProxy.Kernel
+      paths:
+        - src/EryfitProxy.Kernel/**
+ignore:
+  - "src/Eryfit.Kernel.Core.Pcap.Cli/**"
+  - "src/EryfitProxy.Kernel.Extensions/**"
+  - "src/EryfitProxy.Kernel.Tools.DocGen/**"
+
+# Ignore debugging code 
+  - "src/EryfitProxy.Kernel.Core/Clients/H2Logger.cs"
+  - "src/EryfitProxy.Kernel.Core/Clients/H1Logger.cs"
+  - "src/EryfitProxy.Kernel.Core/Misc/Streams/DebugFileStream.cs"
+  - "src/EryfitProxy.Kernel/ArgsHelper.cs"
+  - "src/EryfitProxy.Kernel.Core/Misc/Traces/**"

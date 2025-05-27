@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>@@error-status-code@@ - Transport error - @@error-host@@</title>
+    <style type="text/css">
+        *, b {
+            font-family: "Lucida Sans", Verdana;
+            color: rgba(142, 147, 150, 0.92);
+        }
+        body {
+            background-color: #1c2027;
+            font-size:1.1em; 
+        }
+        .main-color {
+            color: #6abeec;
+        }
+
+        .danger-color {
+            color: #FF4435
+        }
+
+        .bg-danger-color {
+            background-color: #dc3545;
+            padding: 4px 8px 4px 8px;
+            border-radius: 4px;
+        }
+        .white {
+            color: #ffffff;
+        }
+        a {
+            color: rgba(233, 236, 239, 0.92);
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="padding: 64px; padding-top:32px">
+
+        <h1 class="main-color" style="font-size: 1.6em">
+          
+            <span class="main-color">Transport error</span>
+            <span class="bg-danger-color white">@@error-status-code@@</span>&nbsp;&nbsp;
+        </h1>
+        <hr style="border-color: #373f4d ; margin-bottom: 20px" />
+        <div style="line-height: 180%; font-size: 1.2em;">
+            <p>
+                You are seeing this web page because we encountered a transport failure while connecting to the remote host
+                <strong class="white">@@error-host@@</strong>.
+                <br />
+                <br />
+                We received the following message from the operating system:
+            </p>
+            <p>
+                <div style="padding: 16px; border-radius: 8px; background: black;"
+                     class="white">@@error-message@@</div>
+            </p>
+
+        </div>
+        <br/>
+        <hr style="border-color: #373f4d " />
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 64px; vertical-align: center">
+                    <img alt="logo-eryfit"
+                         style="height:56px; position: relative"
+                         src="data:image/png;base64,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" />
+
+                </td>
+                <td style="vertical-align: center">
+
+                    <p class="" style="font-size: 1.05em;">
+                        This HTTP status code 528 page was generated by the intermediary (eryfit) to make the error comprehensible to HTTP clients, 
+                        such as this browser, 
+                        and to distinguish this type of error from a regular HTTP 502 Gateway error.<br/>
+                        For more information, visit the page <a href="https://eryfit.io/documentation/528-transport-errors">eryfit.io/documentation/528-transport-errors</a>.
+
+                    </p>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
