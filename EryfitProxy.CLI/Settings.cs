@@ -2,11 +2,13 @@ namespace EryfitProxy.CLI;
 
 public class Settings
 {
+    public delegate bool ValidationMethods(string str);
+
     public static EryfitSetting Navigate()
     {
         EryfitSetting setting = new EryfitSetting();
 
-        List<string?> newOptions = SystemConsole.ConvertIntoOptionsMode(OptionsSettings, OptionsInputMap, OptionsBottomMessages);
+        List<string?> newOptions = SystemConsole.ConvertIntoOptionsMode(OptionsSettings, OptionsInputMap, OptionsBottomMessages, ValidationOptionsMap);
         setting = EryfitSetting.CreateDefault(ToIPAddressOption(newOptions[0]), int.Parse(newOptions[1]));
 
         if (newOptions[2] != null && newOptions[3] != null)
@@ -65,7 +67,7 @@ public class Settings
         }
     }
 
-    public static List<string> OptionsSettings = new()
+    private static List<string> OptionsSettings = new()
     {
         "IP Address Option",
         "Port",
@@ -75,7 +77,7 @@ public class Settings
         "Install Certificate"
     };
 
-    public static List<(bool, string?)> OptionsInputMap = new()
+    private static List<(bool, string?)> OptionsInputMap = new()
     {
         (true,"Loopback"),
         (true,"44344"),
@@ -85,7 +87,7 @@ public class Settings
         (true,"false"),
     };
 
-    public static List<string?> OptionsBottomMessages = new()
+    private static List<string?> OptionsBottomMessages = new()
     {
         "Options: Any, Broadcast, IPv6Any, IPv6Loopback, IPv6None, Loopback, None",
         "<Port Number>",
@@ -93,5 +95,15 @@ public class Settings
         "<Optional>",
         "Full or partial path for the output directory.",
         "Options: true or false.",
+    };
+
+    private static List<ValidationMethods> ValidationOptionsMap = new()
+    {
+        Validation.IsIPAddressOptions,
+        Validation.IsInt, 
+        Validation.IsIPAddressOptions,
+        Validation.IsInt,
+        Validation.IsDirectory,
+        Validation.IsBool,
     };
 }

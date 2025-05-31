@@ -2,6 +2,8 @@ namespace EryfitProxy.CLI;
 
 public class SystemConsole
 {
+    
+
     /// <summary>
     /// Turns the console into a selection of options.
     /// </summary>
@@ -67,18 +69,18 @@ public class SystemConsole
     /// <param name="OptionsInputMap"></param>
     /// <param name="OptionsBottomMessages"></param>
     /// <returns></returns>
-    public static List<string?> ConvertIntoOptionsMode(List<string> options, List<(bool, string?)> OptionsInputMap, List<string?> OptionsBottomMessages)
+    public static List<string?> ConvertIntoOptionsMode(List<string> options, List<(bool, string?)> OptionsInputMap, List<string?> OptionsBottomMessages, List<Settings.ValidationMethods> validationOptionsMap)
     {
         int currentIndex = 0;
 
-        List<string?> Output = new();
+        List<string?> output = new();
 
         Console.CursorVisible = false;
 
         for (int i = 0; i < options.Count; i++)
         {
             var b = OptionsInputMap[i];
-            Output.Add(b.Item2);
+            output.Add(b.Item2);
         }
 
         while (true)
@@ -108,7 +110,7 @@ public class SystemConsole
             var a = OptionsInputMap[currentIndex];
 
             var haveInput = a.Item1;
-            var defaultInput = Output[currentIndex];
+            var defaultInput = output[currentIndex];
 
             if (haveInput)
             {
@@ -139,20 +141,25 @@ public class SystemConsole
             {
                 if (!haveInput)
                 {
-                    return Output;
+                    return output;
                 }
 
                 else
                 {
-                    // TODO: Assign Variable.
-                    Output[currentIndex] = Console.ReadLine();
+                    var input = Console.ReadLine();
+
+                    if (validationOptionsMap[currentIndex](input))
+                    {
+                        output[currentIndex] = input;
+                    }
+
                     continue;
                 }
             }
 
             else if (key == ConsoleKey.Escape)
             {
-                return Output;
+                return output;
             }
 
             else
