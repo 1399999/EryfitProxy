@@ -2,14 +2,67 @@ namespace EryfitProxy.CLI;
 
 public class Settings
 {
-    public static void Navigate()
+    public static EryfitSetting Navigate()
     {
-        SystemConsole.ConvertIntoOptionsMode(OptionsSettings, OptionsInputMap, OptionsBottomMessages);
+        EryfitSetting setting = new EryfitSetting();
 
-        //if (index == 0)
-        //{
-        //    // 
-        //}
+        List<string?> newOptions = SystemConsole.ConvertIntoOptionsMode(OptionsSettings, OptionsInputMap, OptionsBottomMessages);
+        setting = EryfitSetting.CreateDefault(ToIPAddressOption(newOptions[0]), int.Parse(newOptions[1]));
+
+        if (newOptions[2] != null && newOptions[3] != null)
+        {
+            setting.AddBoundAddress(ToIPAddressOption(newOptions[2]), int.Parse(newOptions[3]));
+        }
+
+        if (newOptions[4] != null)
+        {
+            setting.SetOutDirectory(newOptions[4]);
+        }
+
+        if (newOptions[5] != null)
+        {
+            setting.SetAutoInstallCertificate(bool.Parse(newOptions[5]));
+        }
+
+        return setting;
+    }
+
+    public static IPAddress ToIPAddressOption(string? option)
+    {
+        if (option == "Any")
+        {
+            return IPAddress.Any;
+        }
+
+        else if (option == "Broadcast")
+        {
+            return IPAddress.Broadcast;
+        }
+
+        else if (option == "IPv6Any")
+        {
+            return IPAddress.IPv6Any;
+        }
+
+        else if (option == "IPv6Loopback")
+        {
+            return IPAddress.IPv6Loopback;
+        }
+
+        else if (option == "IPv6None")
+        {
+            return IPAddress.IPv6None;
+        }
+
+        else if (option == "None")
+        {
+            return IPAddress.None;
+        }
+
+        else 
+        {
+            return IPAddress.Loopback;
+        }
     }
 
     public static List<string> OptionsSettings = new()
