@@ -10,7 +10,6 @@ using EryfitProxy.Kernel.Core;
 using EryfitProxy.Kernel.Rules;
 using EryfitProxy.Kernel.Certificates;
 using EryfitProxy.Kernel.Misc.Streams;
-
 using System.Diagnostics;
 
 namespace EryfitProxy.CLI;
@@ -31,9 +30,24 @@ internal class Program
 
             string[] inputVectors = Console.ReadLine().Trim().Split(' ');
 
-            if (inputVectors[0] == "setting" || inputVectors[0] == "settings")
+            if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && (inputVectors[1] != "help" || inputVectors[1] != "--help"))
             {
                 Settings.Navigate();
+            }
+
+            else if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && (inputVectors[1] == "help" || inputVectors[1] == "--help"))
+            {
+                Information.DisplaySettingsHelp();
+            }
+
+            else if (inputVectors[0] == "help")
+            {
+                Information.DisplayGeneralHelp();
+            }
+
+            else if (inputVectors[0] == "credit" || inputVectors[0] == "credits")
+            {
+                Information.DisplayCredits();
             }
         }
     }
