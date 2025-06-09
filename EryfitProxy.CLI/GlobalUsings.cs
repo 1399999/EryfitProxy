@@ -1,4 +1,6 @@
 global using System.Net;
+global using System.Diagnostics;
+
 global using EryfitProxy.Kernel;
 global using EryfitProxy.Kernel.Rules.Filters.RequestFilters;
 global using EryfitProxy.Kernel.Rules.Filters;
@@ -12,4 +14,3 @@ global using EryfitProxy.Kernel.Core;
 global using EryfitProxy.Kernel.Rules;
 global using EryfitProxy.Kernel.Certificates;
 global using EryfitProxy.Kernel.Misc.Streams;
-global using System.Diagnostics;

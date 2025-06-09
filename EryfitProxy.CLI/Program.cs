@@ -23,7 +23,7 @@ public class Program
                 goto Start;
             }
 
-            else if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && (inputVectors[1] == "help" || inputVectors[1] == "--help"))
+            else if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && Arguments.CheckForHelp(inputVectors))
             {
                 Information.DisplaySettingsHelp();
             }
@@ -36,6 +36,17 @@ public class Program
             else if (inputVectors[0] == "credit" || inputVectors[0] == "credits")
             {
                 Information.DisplayCredits();
+            }
+
+            else if ((inputVectors[0] == "run" || inputVectors[0] == "start") && Arguments.CheckForNoArguments(inputVectors))
+            {
+                Information.DisplayStartData(eryfitSetting);
+                CoreFunctionality.RunProxy(eryfitSetting);
+            }
+
+            else if ((inputVectors[0] == "run" || inputVectors[0] == "start") && Arguments.CheckForHelp(inputVectors))
+            {
+                Information.DisplayStartHelp();
             }
 
             else if (inputVectors[0] != string.Empty)
