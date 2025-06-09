@@ -62,6 +62,16 @@ public class SystemConsole
         }
     }
 
+<<<<<<< HEAD
+=======
+    /// <summary>
+    /// Turns the console into a selection of options.
+    /// </summary>
+    /// <param name="options"></param>
+    /// <param name="OptionsInputMap"></param>
+    /// <param name="OptionsBottomMessages"></param>
+    /// <returns></returns>
+>>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
     public static List<string?> ConvertIntoOptionsMode(List<string> options, List<(bool, string?)> OptionsInputMap, List<string?> OptionsBottomMessages, List<Settings.ValidationMethods> validationOptionsMap)
     {
         int currentIndex = 0;

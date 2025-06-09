@@ -17,6 +17,10 @@ public class Information
 
     public static void DisplayCredits() => Console.WriteLine
     (
+<<<<<<< HEAD
         "\nCopyright (C) Mikhail Zhebrunov 2020-2025.\n"
+=======
+        "\nCopyright (C) Mikhail Zhebrunov 2020-2025\n"
+>>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
     );
 }

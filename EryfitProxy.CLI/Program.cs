@@ -114,9 +114,14 @@ internal class Program
 
         // Only filter with OnAuthorityReceived scope will be accepted
         eryfitStartupSetting.SetSaveFilter(new HostFilter("eryfit.io", StringSelectorOperation.EndsWith));
+<<<<<<< HEAD
         eryfitStartupSetting.SetSaveFilter(new HostFilter("eryfit.io"));
 
         // We can combine multiple condition with a filter collection 
+=======
+
+        // We can combine multiple condition wit a filter collection 
+>>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
         eryfitStartupSetting.SetSaveFilter(new FilterCollection(
             new HostFilter("eryfit.io", StringSelectorOperation.EndsWith),
             new IsSecureFilter()
