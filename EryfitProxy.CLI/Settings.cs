@@ -1,14 +1,13 @@
-<<<<<<< HEAD
-using EryfitProxy.Kernel.Rules.Filters;
-
-=======
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
 namespace EryfitProxy.CLI;
 
 public class Settings
 {
     public delegate bool ValidationMethods(string str);
 
+    /// <summary>
+    /// Walks through the setting set-up process.
+    /// </summary>
+    /// <returns>The Eryfit setting that the user sets.</returns>
     public static EryfitSetting Navigate()
     {
         EryfitSetting setting = new EryfitSetting();
@@ -31,7 +30,6 @@ public class Settings
             setting.SetAutoInstallCertificate(bool.Parse(newOptions[5]));
         }
 
-<<<<<<< HEAD
         if (newOptions[6] != null)
         {
             setting.SetSaveFilter(new HostFilter(newOptions[6]));
@@ -45,49 +43,6 @@ public class Settings
         return setting;
     }
 
-=======
-        return setting;
-    }
-
-    public static IPAddress ToIPAddressOption(string? option)
-    {
-        if (option == "Any")
-        {
-            return IPAddress.Any;
-        }
-
-        else if (option == "Broadcast")
-        {
-            return IPAddress.Broadcast;
-        }
-
-        else if (option == "IPv6Any")
-        {
-            return IPAddress.IPv6Any;
-        }
-
-        else if (option == "IPv6Loopback")
-        {
-            return IPAddress.IPv6Loopback;
-        }
-
-        else if (option == "IPv6None")
-        {
-            return IPAddress.IPv6None;
-        }
-
-        else if (option == "None")
-        {
-            return IPAddress.None;
-        }
-
-        else 
-        {
-            return IPAddress.Loopback;
-        }
-    }
-
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
     private static List<string> OptionsSettings = new()
     {
         "IP Address Option",
@@ -95,13 +50,9 @@ public class Settings
         "New Bound Address Option",
         "New Bound Address Port",
         "Output Directory",
-<<<<<<< HEAD
         "Install Certificate",
         "New Host Filter Pattern",
         "New Host Filter String Selector",
-=======
-        "Install Certificate"
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
     };
 
     private static List<(bool, string?)> OptionsInputMap = new()
@@ -112,11 +63,8 @@ public class Settings
         (true,null),
         (true,null),
         (true,"false"),
-<<<<<<< HEAD
         (true,null),
         (true,null),
-=======
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
     };
 
     private static List<string?> OptionsBottomMessages = new()
@@ -127,11 +75,8 @@ public class Settings
         "<Optional>",
         "Full or partial path for the output directory.",
         "Options: true or false.",
-<<<<<<< HEAD
         "Options: <URL>.",
         "Options: Contains, EndsWith, Exact, Regex, StartsWith.",
-=======
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
     };
 
     private static List<ValidationMethods> ValidationOptionsMap = new()
@@ -142,7 +87,6 @@ public class Settings
         Validation.IsInt,
         Validation.IsDirectory,
         Validation.IsBool,
-<<<<<<< HEAD
         Validation.None,
         Validation.IsStringSelectorOperation,
     };
@@ -217,7 +161,4 @@ public class Settings
             return null;
         }
     }
-=======
-    };
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
 }

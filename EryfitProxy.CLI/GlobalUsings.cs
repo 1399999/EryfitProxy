@@ -1,6 +1,15 @@
 global using System.Net;
 global using EryfitProxy.Kernel;
-<<<<<<< HEAD
 global using EryfitProxy.Kernel.Rules.Filters.RequestFilters;
-=======
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
+global using EryfitProxy.Kernel.Rules.Filters;
+global using EryfitProxy.Kernel.Rules.Actions;
+global using EryfitProxy.Kernel.Core.Pcap.Pcapng;
+global using EryfitProxy.Kernel.Core.Pcap;
+global using EryfitProxy.Kernel.Readers;
+global using EryfitProxy.Kernel.Clients.Mock;
+global using EryfitProxy.Kernel.Rules.Actions.HighLevelActions;
+global using EryfitProxy.Kernel.Core;
+global using EryfitProxy.Kernel.Rules;
+global using EryfitProxy.Kernel.Certificates;
+global using EryfitProxy.Kernel.Misc.Streams;
+global using System.Diagnostics;

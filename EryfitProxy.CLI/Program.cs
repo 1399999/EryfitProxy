@@ -1,22 +1,8 @@
-using EryfitProxy.Kernel.Rules.Filters.RequestFilters;
-using EryfitProxy.Kernel.Rules.Filters;
-using EryfitProxy.Kernel.Rules.Actions;
-using EryfitProxy.Kernel.Core.Pcap.Pcapng;
-using EryfitProxy.Kernel.Core.Pcap;
-using EryfitProxy.Kernel.Readers;
-using EryfitProxy.Kernel.Clients.Mock;
-using EryfitProxy.Kernel.Rules.Actions.HighLevelActions;
-using EryfitProxy.Kernel.Core;
-using EryfitProxy.Kernel.Rules;
-using EryfitProxy.Kernel.Certificates;
-using EryfitProxy.Kernel.Misc.Streams;
-using System.Diagnostics;
-
 namespace EryfitProxy.CLI;
 
-internal class Program
+public class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
         EryfitSetting eryfitSetting = Settings.Navigate();
 
@@ -114,14 +100,9 @@ internal class Program
 
         // Only filter with OnAuthorityReceived scope will be accepted
         eryfitStartupSetting.SetSaveFilter(new HostFilter("eryfit.io", StringSelectorOperation.EndsWith));
-<<<<<<< HEAD
         eryfitStartupSetting.SetSaveFilter(new HostFilter("eryfit.io"));
 
         // We can combine multiple condition with a filter collection 
-=======
-
-        // We can combine multiple condition wit a filter collection 
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
         eryfitStartupSetting.SetSaveFilter(new FilterCollection(
             new HostFilter("eryfit.io", StringSelectorOperation.EndsWith),
             new IsSecureFilter()

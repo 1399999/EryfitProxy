@@ -2,10 +2,9 @@ namespace EryfitProxy.CLI;
 
 public class SystemConsole
 {
-    
 
     /// <summary>
-    /// Turns the console into a selection of options.
+    /// Turns the console into a selection of options (more simple).
     /// </summary>
     /// <param name="options">The parmaters which the users can choose from (in list form).</param>
     /// <returns>The index which the user selects.</returns>
@@ -62,16 +61,14 @@ public class SystemConsole
         }
     }
 
-<<<<<<< HEAD
-=======
     /// <summary>
-    /// Turns the console into a selection of options.
+    /// Turns the console into a selection of options (more complex).
     /// </summary>
-    /// <param name="options"></param>
-    /// <param name="OptionsInputMap"></param>
-    /// <param name="OptionsBottomMessages"></param>
-    /// <returns></returns>
->>>>>>> acce00391cb61667112a49109ffb1deaa27cc84b
+    /// <param name="options">The parmaters which the users can choose from.</param>
+    /// <param name="OptionsInputMap">Whether the option has text to it, instead of just being an option. If yes, its default value.</param>
+    /// <param name="OptionsBottomMessages">The bottom message that displays below the options.</param>
+    /// <param name="validationOptionsMap">Validation functions that the program uses (delegates).</param>
+    /// <returns>The outputs which the user selects.</returns>
     public static List<string?> ConvertIntoOptionsMode(List<string> options, List<(bool, string?)> OptionsInputMap, List<string?> OptionsBottomMessages, List<Settings.ValidationMethods> validationOptionsMap)
     {
         int currentIndex = 0;
