@@ -6,8 +6,9 @@ public class Program
     {
         EryfitSetting eryfitSetting = Settings.Navigate();
 
-        Console.Clear();
+        Start: { }
 
+        Console.Clear();
         Console.WriteLine(" ==================== Eryfit 0.0.0 ====================\n");
 
         while (true)
@@ -16,9 +17,10 @@ public class Program
 
             string[] inputVectors = Console.ReadLine().Trim().Split(' ');
 
-            if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && (inputVectors[1] != "help" || inputVectors[1] != "--help"))
+            if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && Arguments.CheckForNoArguments(inputVectors))
             {
-                Settings.Navigate();
+                eryfitSetting = Settings.Navigate();
+                goto Start;
             }
 
             else if ((inputVectors[0] == "setting" || inputVectors[0] == "settings") && (inputVectors[1] == "help" || inputVectors[1] == "--help"))
@@ -34,6 +36,11 @@ public class Program
             else if (inputVectors[0] == "credit" || inputVectors[0] == "credits")
             {
                 Information.DisplayCredits();
+            }
+
+            else if (inputVectors[0] != string.Empty)
+            {
+                SystemError.DisplayGeneralCommandError(inputVectors[0]);
             }
         }
     }
